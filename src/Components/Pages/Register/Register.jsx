@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import login from "../../../assets/login.svg";
-//import { AuthContext } from "../../Providers/AuthProvider";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
-  //   const { createUser } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
 
   const [registerError, setRegisterError] = useState("");
 
@@ -32,28 +32,28 @@ const Register = () => {
     }
     e.currentTarget.reset();
 
-    // createUser(email, password)
-    //   .then((result) => {
-    //     toast.success("Sign up completed successfully");
-    //     console.log(result);
-    //     // const user = { name, email, image };
-    //     // fetch("https://pantry-hub-server.vercel.app/users", {
-    //     //   method: "POST",
-    //     //   headers: {
-    //     //     "content-type": "application/json",
-    //     //   },
-    //     //   body: JSON.stringify(user),
-    //     // })
-    //     //   .then((res) => res.json())
-    //     //   .then((data) => {
-    //     //     if (data.insertedId) {
-    //     //       console.log("user added to the database");
-    //     //     }
-    //     //   });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    createUser(email, password)
+      .then((result) => {
+        toast.success("Sign up completed successfully");
+        console.log(result);
+        // const user = { name, email, image };
+        // fetch("https://pantry-hub-server.vercel.app/users", {
+        //   method: "POST",
+        //   headers: {
+        //     "content-type": "application/json",
+        //   },
+        //   body: JSON.stringify(user),
+        // })
+        //   .then((res) => res.json())
+        //   .then((data) => {
+        //     if (data.insertedId) {
+        //       console.log("user added to the database");
+        //     }
+        //   });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

@@ -124,7 +124,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="py-6 text-sm text-center dark:text-gray-400">
+        <div className="py-6 text-sm text-center ">
           © 2023 Company Co. All rights reserved.
         </div>
       </footer>
