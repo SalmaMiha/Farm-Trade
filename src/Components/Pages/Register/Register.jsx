@@ -57,12 +57,12 @@ const Register = () => {
   };
 
   return (
-    <div className=" bg-lightGreen py-10 flex items-center px-20">
+    <div className=" bg-lightGreen py-10 flex flex-col md:flex-row items-center md:px-5 lg:px-20">
       <ToastContainer></ToastContainer>
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2">
         <img className="" src={login} alt="" />
       </div>
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2">
         <h2 className="text-4xl font-bold font-quicksand text-center">
           Register Now
         </h2>
