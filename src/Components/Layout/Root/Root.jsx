@@ -3,8 +3,10 @@ import Navbar from "../../Shared/Navbar/Navbar";
 
 const Root = () => {
   return (
-    <div>
-      <Navbar></Navbar>
+    <div className="font-jost">
+      <div className="px-10 pt-10 bg-lightGreen">
+        <Navbar></Navbar>
+      </div>
       <Outlet></Outlet>
     </div>
   );

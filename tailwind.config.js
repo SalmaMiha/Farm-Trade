@@ -12,6 +12,7 @@ export default {
       },
       colors:{
         green: '#360',
+        lightGreen: '#F9FFF5',
         grey: '#7D7C7C',
         lightGrey: '#F1EFEF',
         beige: '#ECE3CE'
