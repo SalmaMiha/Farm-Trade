@@ -9,7 +9,7 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? " border-b-4 border-green text-green rounded-none px-3 py-2 rounded-lg"
+              ? " border-b-4 border-green text-green rounded-none px-3 py-2 "
               : "px-3 py-2"
           }
         >
