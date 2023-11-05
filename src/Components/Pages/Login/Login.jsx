@@ -1,13 +1,13 @@
-import { useState } from "react";
-//import { AuthContext } from "../../Providers/AuthProvider";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import login from "../../../assets/login.svg";
 import { AiOutlineGoogle } from "react-icons/ai";
 
 const Login = () => {
-  //const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const { logIn, signInWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("");
 
   const handleLogin = (e) => {
@@ -20,28 +20,28 @@ const Login = () => {
     setError("");
     e.currentTarget.reset();
 
-    // signIn(email, password)
-    //   .then((result) => {
-    //     toast.success("Logged in successfully");
-    //     console.log(result.user);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     if (error.code == "auth/invalid-login-credentials") {
-    //       setError("Wrong email/password");
-    //     }
-    //   });
+    logIn(email, password)
+      .then((result) => {
+        toast.success("Logged in successfully");
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.code == "auth/invalid-login-credentials") {
+          setError("Wrong email/password");
+        }
+      });
   };
 
   const handleLoginWithGoogle = () => {
-    // signInWithGoogle()
-    //   .then((result) => {
-    //     toast.success("Logged in successfully");
-    //     console.log(result.user);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
+    signInWithGoogle()
+      .then((result) => {
+        toast.success("Logged in successfully");
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
