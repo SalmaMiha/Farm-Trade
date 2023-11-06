@@ -30,14 +30,14 @@ const Navbar = () => {
       </li>
       <li className="font-jost font-semibold text-base">
         <NavLink
-          to="/add"
+          to="/services"
           className={({ isActive }) =>
             isActive
               ? " border-b-4 border-green text-green rounded-none px-3 py-2 "
               : "px-3 py-2"
           }
         >
-          Add Products
+          Services
         </NavLink>
       </li>
     </>

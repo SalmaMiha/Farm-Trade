@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import Errorpage from "../Pages/ErrorPage/Errorpage";
 import AddProduct from "../Pages/AddProduct/AddProduct";
 import PrivateRoute from "./PrivateRoute";
+import ServicePage from "../Pages/ServicePage/ServicePage";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/services",
+        element: <ServicePage></ServicePage>,
       },
       {
         path: "/add",
