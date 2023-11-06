@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import login from "../../../assets/login.svg";
 import { AiOutlineGoogle } from "react-icons/ai";
+import axios from "axios";
 
 const Login = () => {
   const { logIn, signInWithGoogle } = useContext(AuthContext);
@@ -24,9 +25,19 @@ const Login = () => {
 
     logIn(email, password)
       .then((result) => {
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
         toast.success("Logged in successfully");
-        console.log(result.user);
-        navigate(location?.state ? location?.state : "/");
+        const user = { email };
+
+        axios
+          .post("http://localhost:5000/jwt", user, { withCredentials: true })
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.success) {
+              navigate(location?.state ? location?.state : "/");
+            }
+          });
       })
       .catch((error) => {
         console.log(error);
