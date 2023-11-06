@@ -6,7 +6,13 @@ import UserInfo from "./UserInfo";
 
 const Navbar = () => {
   //const currentUser = useContext(AuthContext);
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => console.log("user logged out successfully"))
+      .catch((error) => console.error(error));
+  };
 
   const links = (
     <>
@@ -20,6 +26,18 @@ const Navbar = () => {
           }
         >
           Home
+        </NavLink>
+      </li>
+      <li className="font-jost font-semibold text-base">
+        <NavLink
+          to="/add"
+          className={({ isActive }) =>
+            isActive
+              ? " border-b-4 border-green text-green rounded-none px-3 py-2 "
+              : "px-3 py-2"
+          }
+        >
+          Add Products
         </NavLink>
       </li>
     </>
@@ -58,11 +76,23 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user && <UserInfo></UserInfo>}
-        <Link to="/login">
-          <button className="btn bg-green font-extrabold text-white font-quicksand">
-            Login
-          </button>
-        </Link>
+
+        {user ? (
+          <>
+            <a
+              onClick={handleLogOut}
+              className="btn bg-green text-white font-extrabold font-quicksand"
+            >
+              Log out
+            </a>
+          </>
+        ) : (
+          <Link to="/login">
+            <button className="btn bg-green font-extrabold text-white font-quicksand">
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );
