@@ -3,7 +3,7 @@ const Banner = () => {
   return (
     <div className="">
       <section className="bg-lightGreen ">
-        <div className="lg:pl-36 container flex flex-col-reverse justify-center mx-auto lg:py-24 lg:flex-row lg:justify-around md:gap-5">
+        <div className="lg:pl-36 container flex flex-col-reverse justify-center mx-auto lg:py-10 lg:flex-row lg:justify-around md:gap-5">
           <div className="flex flex-col justify-center p-6 text-center rounded-md lg:max-w-md xl:max-w-lg lg:text-left">
             <h1 className="text-5xl font-bold md:text-6xl">
               Welcome to <br />

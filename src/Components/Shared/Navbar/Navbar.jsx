@@ -70,6 +70,7 @@ const Navbar = () => {
           </ul>
         </div>
         <img className="w-16" src={icon} alt="" />
+        <h1 className=" text-2xl font-semibold ml-2">Farm Trade</h1>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
