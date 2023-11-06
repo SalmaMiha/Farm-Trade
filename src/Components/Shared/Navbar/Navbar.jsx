@@ -1,7 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import icon from "../../../assets/Farm Trade.png";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import UserInfo from "./UserInfo";
 
 const Navbar = () => {
+  //const currentUser = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+
   const links = (
     <>
       <li className="font-jost font-semibold text-base">
@@ -51,6 +57,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
+        {user && <UserInfo></UserInfo>}
         <Link to="/login">
           <button className="btn bg-green font-extrabold text-white font-quicksand">
             Login

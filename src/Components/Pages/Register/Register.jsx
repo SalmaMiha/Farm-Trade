@@ -36,20 +36,20 @@ const Register = () => {
       .then((result) => {
         toast.success("Sign up completed successfully");
         console.log(result);
-        // const user = { name, email, image };
-        // fetch("https://pantry-hub-server.vercel.app/users", {
-        //   method: "POST",
-        //   headers: {
-        //     "content-type": "application/json",
-        //   },
-        //   body: JSON.stringify(user),
-        // })
-        //   .then((res) => res.json())
-        //   .then((data) => {
-        //     if (data.insertedId) {
-        //       console.log("user added to the database");
-        //     }
-        //   });
+        const user = { name, email, image };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              console.log("user added to the database");
+            }
+          });
       })
       .catch((error) => {
         console.log(error);
