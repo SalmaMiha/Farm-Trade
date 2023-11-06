@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import login from "../../../assets/login.svg";
@@ -9,6 +9,8 @@ import { AiOutlineGoogle } from "react-icons/ai";
 const Login = () => {
   const { logIn, signInWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,6 +26,7 @@ const Login = () => {
       .then((result) => {
         toast.success("Logged in successfully");
         console.log(result.user);
+        navigate(location?.state ? location?.state : "/");
       })
       .catch((error) => {
         console.log(error);
