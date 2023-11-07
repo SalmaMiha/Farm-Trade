@@ -37,7 +37,7 @@ const Newsletter = () => {
       <form onSubmit={handleSubscribe}>
         <div className="flex items-center gap-3">
           <div className="flex relative">
-            <div className="form-control w-96">
+            <div className="form-control w-64 md:w-96">
               <input
                 type="text"
                 name="email"
@@ -45,7 +45,7 @@ const Newsletter = () => {
                 className="input w-full rounded-full"
               />
             </div>
-            <div className="absolute left-80 bottom-0">
+            <div className="absolute left-48 md:left-80 bottom-0">
               <input
                 type="submit"
                 value="Subscribe"

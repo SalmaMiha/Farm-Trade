@@ -43,7 +43,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar">
+    <div className="navbar sm:flex flex-col md:flex-row">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -75,7 +75,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="md:navbar-end">
         {user && <UserInfo></UserInfo>}
 
         {user ? (
