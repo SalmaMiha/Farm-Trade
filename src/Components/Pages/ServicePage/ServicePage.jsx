@@ -14,8 +14,7 @@ const ServicePage = () => {
     });
   }, []);
   return (
-    <div>
-      <p>{services.length}</p>
+    <div className="mx-28 my-10">
       {services.map((service) => (
         <div key={service._id}>
           <ServiceCard service={service}></ServiceCard>

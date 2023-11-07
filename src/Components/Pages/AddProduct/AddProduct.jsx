@@ -25,11 +25,13 @@ const AddProduct = () => {
     const price = form.price.value;
     const description = form.description.value;
     const area = form.area.value;
+    const providerImage = user.image;
 
     const newProduct = {
       name,
       image,
       providerName,
+      providerImage,
       email,
       price,
       description,

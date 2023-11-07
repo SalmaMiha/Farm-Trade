@@ -1,11 +1,37 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
-  const { name, image } = service;
+  const { name, image, price, area, description, providerName, providerImage } =
+    service;
+
   return (
-    <div>
-      <img src={image} alt="" />
-      <p>{name}</p>
+    <div className="bg-lightGrey p-5 flex flex-col mb-5">
+      <div className="flex gap-5 pb-2">
+        <div>
+          <p className="text-end font-quicksand font-bold">Provider</p>
+          <div className="pt-2">
+            <img className="h-12" src={providerImage} alt="" />
+            <p className=" font-bold">{providerName}</p>
+          </div>
+        </div>
+        <img className="h-36" src={image} alt="" />
+        <div>
+          <h2 className="font-quicksand font-bold text-lg">{name}</h2>
+          <p>{description}</p>
+          <p>
+            Price: <span className="font-semibold">${price}</span>
+          </p>
+          <p className="font-medium">
+            Area: <span className="font-semibold">{area}</span>
+          </p>
+          <div className=" flex justify-end">
+            <Link>
+              <button className="btn bg-green text-white">View Details</button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
