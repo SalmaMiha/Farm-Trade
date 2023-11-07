@@ -46,42 +46,46 @@ const Review = () => {
   };
 
   return (
-    <div>
-      <h2>Share Your Feedback</h2>
+    <div
+      className="flex flex-col items-center my-10 p-20 "
+      style={{
+        backgroundImage: "url(https://i.ibb.co/n07zBcG/background-2.jpg)",
+      }}
+    >
+      <h2 className="font-quicksand text-2xl font-bold pb-5">
+        Share Your Feedback
+      </h2>
       <form onSubmit={handleAddReview}>
-        <div className="form-control md:w-1/2">
-          <label className="label">
-            <span className="label-text text-lg font-semibold">Ratings</span>
-          </label>
-          <label className="input-group">
-            <input
-              type="text"
-              name="ratings"
-              placeholder="Enter Service Name"
-              className="input input-bordered w-full"
-            />
-          </label>
-        </div>
+        <div className="flex items-center gap-3">
+          <p className="text-lg font-semibold">Ratings: </p>
+          <div className="form-control">
+            <select name="ratings" className="w-full p-3 rounded-lg">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
 
-        {/* image */}
-        <div className="form-control md:w-1/2">
-          <label className="label">
-            <span className="label-text text-lg font-semibold">Review</span>
-          </label>
-          <label className="input-group">
-            <input
-              type="text"
-              name="review"
-              placeholder="Enter Image URL"
-              className="input input-bordered w-full"
-            />
-          </label>
+          <div className="flex relative">
+            <div className="form-control w-96">
+              <input
+                type="text"
+                name="review"
+                placeholder="Your Feedback"
+                className="input input-bordered w-full"
+              />
+            </div>
+            <div className="absolute left-80 bottom-0">
+              <input
+                type="submit"
+                value="Add Review"
+                className="btn font-quicksand bg-green font-bold text-white mt-5"
+              />
+            </div>
+          </div>
         </div>
-        <input
-          type="submit"
-          value="Add Review"
-          className="btn font-quicksand bg-green font-bold text-white mt-5"
-        />
       </form>
     </div>
   );
