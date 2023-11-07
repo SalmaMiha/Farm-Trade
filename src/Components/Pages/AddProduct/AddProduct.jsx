@@ -1,6 +1,18 @@
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const AddProduct = () => {
+  const [user, setUser] = useState([]);
+
+  const currentUser = useContext(AuthContext);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${currentUser.user.email}`)
+      .then((res) => res.json())
+      .then((data) => setUser(data));
+  }, []);
+
   const handleAddProduct = (event) => {
     event.preventDefault();
 
@@ -102,8 +114,9 @@ const AddProduct = () => {
                 <input
                   type="text"
                   name="providerName"
-                  placeholder="Enter Image URL"
+                  value={`${user.name}`}
                   className="input input-bordered w-full"
+                  readOnly
                 />
               </label>
             </div>
@@ -119,8 +132,9 @@ const AddProduct = () => {
                 <input
                   type="text"
                   name="email"
-                  placeholder="Enter Type"
+                  value={`${user.email}`}
                   className="input input-bordered w-full"
+                  readOnly
                 />
               </label>
             </div>
