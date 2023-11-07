@@ -17,11 +17,14 @@ const UserInfo = () => {
     <div className="flex items-center gap-2 mr-5">
       <img className="h-10 rounded-full" src={user.image} alt="" />
 
-      <details className="dropdown">
-        <summary className="m-1 btn btn-outline text-green">
+      <div className="dropdown">
+        <label tabIndex={0} className="btn m-1  btn-outline text-green">
           <HiMenu></HiMenu>Dashboard
-        </summary>
-        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+        </label>
+        <ul
+          tabIndex={0}
+          className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+        >
           <li>
             <p className="font-bold">{user.name}</p>
 
@@ -32,7 +35,7 @@ const UserInfo = () => {
             <Link to="/add">Add Service</Link>
           </li>
           <li>
-            <Link>My All Services</Link>
+            <Link to="/my-services">My All Services</Link>
           </li>
           <li>
             <Link>My Pending Services</Link>
@@ -41,7 +44,7 @@ const UserInfo = () => {
             <Link>Booked Services</Link>
           </li>
         </ul>
-      </details>
+      </div>
     </div>
   );
 };

@@ -1,10 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard/ServiceCard";
-//import { AuthContext } from "../../Providers/AuthProvider";
+import { Typewriter } from "react-simple-typewriter";
 
 const ServicePage = () => {
-  //const { user } = useContext(AuthContext);
   const [services, setServices] = useState([]);
 
   const url = "http://localhost:5000/services";
@@ -15,6 +14,20 @@ const ServicePage = () => {
   }, []);
   return (
     <div className="mx-28 my-10">
+      <h1 className="text-center py-5 text-2xl font-bold font-quicksand">
+        Enjoy our{" "}
+        <span className="text-green">
+          <Typewriter
+            words={["organic vegetable", "fresh meat", "homemade items"]}
+            loop={10}
+            cursor
+            cursorStyle="|"
+            typeSpeed={100}
+            deleteSpeed={100}
+            delaySpeed={1000}
+          />
+        </span>
+      </h1>
       {services.map((service) => (
         <div key={service._id}>
           <ServiceCard service={service}></ServiceCard>
