@@ -5,7 +5,11 @@ const Footer = () => {
     <div>
       <footer
         className=" pb-10 pt-20 divide-y text-white "
-        style={{ backgroundImage: "url(https://i.ibb.co/JB9Z5wC/footer.jpg)" }}
+        style={{
+          backgroundImage: "url(https://i.ibb.co/JB9Z5wC/footer.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
       >
         <div className="container pl-10 flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
           <div className="lg:w-1/3">
