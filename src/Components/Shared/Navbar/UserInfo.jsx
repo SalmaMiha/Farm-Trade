@@ -38,10 +38,10 @@ const UserInfo = () => {
             <Link to="/my-services">My All Services</Link>
           </li>
           <li>
-            <Link>My Pending Services</Link>
+            <Link>My Schedules</Link>
           </li>
           <li>
-            <Link>Booked Services</Link>
+            <Link>My Order</Link>
           </li>
         </ul>
       </div>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const ServiceCard = ({ service }) => {
   const { name, image, price, area, description, providerName, providerImage } =
     service;
+  const slicedDescription = description.slice(0, 100);
 
   return (
     <div className="bg-lightGrey p-5 flex flex-col mb-5">
@@ -16,9 +17,9 @@ const ServiceCard = ({ service }) => {
           </div>
         </div>
         <img className="h-36" src={image} alt="" />
-        <div>
+        <div className="flex-grow">
           <h2 className="font-quicksand font-bold text-lg">{name}</h2>
-          <p>{description}</p>
+          <p>{slicedDescription}</p>
           <p>
             Price: <span className="font-semibold">${price}</span>
           </p>
