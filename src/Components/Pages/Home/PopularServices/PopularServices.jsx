@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import PopularServiceCard from "./PopularServiceCard/PopularServiceCard";
+import { Link } from "react-router-dom";
 
 const PopularServices = () => {
   const [popularServices, setPopularServices] = useState([]);
@@ -25,6 +26,13 @@ const PopularServices = () => {
             ></PopularServiceCard>
           </div>
         ))}
+      </div>
+      <div className="flex justify-center mt-5 ">
+        <Link to="/services">
+          <button className="btn bg-beige font-bold font-quicksand shadow-lg">
+            View More
+          </button>
+        </Link>
       </div>
     </div>
   );
