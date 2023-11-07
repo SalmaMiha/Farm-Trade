@@ -1,7 +1,7 @@
 import Banner from "./Banner/Banner";
 import CustomerReview from "./CustomerReview/CustomerReview";
+import Newsletter from "./Newsletter/Newsletter";
 import PopularServices from "./PopularServices/PopularServices";
-import Review from "./Review/Review";
 
 const Home = () => {
   return (
@@ -9,7 +9,7 @@ const Home = () => {
       <Banner></Banner>
       <PopularServices></PopularServices>
       <CustomerReview></CustomerReview>
-      <Review></Review>
+      <Newsletter></Newsletter>
     </div>
   );
 };

@@ -13,6 +13,7 @@
     "axios": "^1.6.0",
     "firebase": "^10.5.2",
     "flowbite-react": "^0.6.4",
+    "framer-motion": "^10.16.4",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "preline": "^2.0.0",
