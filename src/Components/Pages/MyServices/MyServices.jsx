@@ -34,7 +34,7 @@ const MyServices = () => {
           </thead>
           <tbody>
             {myServices.map((myService) => (
-              <tr key={myService.id}>
+              <tr key={myService._id}>
                 <td>
                   <div className="flex items-center space-x-3">
                     <div className="avatar">

@@ -8,6 +8,7 @@ import AddProduct from "../Pages/AddProduct/AddProduct";
 import PrivateRoute from "./PrivateRoute";
 import ServicePage from "../Pages/ServicePage/ServicePage";
 import MyServices from "../Pages/MyServices/MyServices";
+import UpdateService from "../Pages/UpdateService/UpdateService";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyServices></MyServices>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateService></UpdateService>
           </PrivateRoute>
         ),
       },
