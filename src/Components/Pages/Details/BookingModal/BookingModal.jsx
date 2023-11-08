@@ -1,9 +1,11 @@
 import Swal from "sweetalert2";
 import PropTypes from "prop-types";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 const BookingModal = ({ singleService }) => {
+  const [isModalOpen, setModalOpen] = useState(false);
+
   const { name, image, providerName, providerImage, email, price } =
     singleService;
 
@@ -11,6 +13,7 @@ const BookingModal = ({ singleService }) => {
   const bookingEmail = currentUser.user.email;
   const handleBook = (event) => {
     event.preventDefault();
+    setModalOpen(false);
 
     const form = event.target;
 
@@ -18,6 +21,7 @@ const BookingModal = ({ singleService }) => {
     const instruction = form.instruction.value;
 
     const providerEmail = email;
+    const status = "Pending";
 
     const bookedService = {
       name,
@@ -29,6 +33,7 @@ const BookingModal = ({ singleService }) => {
       price,
       date,
       instruction,
+      status,
     };
 
     console.log(bookedService);
@@ -44,24 +49,24 @@ const BookingModal = ({ singleService }) => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          if (data.insertedId) {
-            Swal.fire({
-              title: "Success!",
-              text: "Service has been booked",
-              icon: "success",
-              confirmButtonText: "Okay",
-              confirmButtonColor: "#495E57",
-            });
-          }
+          window.history.back();
+          Swal.fire({
+            title: "Success!",
+            text: "Service has been booked",
+            icon: "success",
+            confirmButtonText: "Okay",
+            confirmButtonColor: "#495E57",
+          });
+          // location.reload();
         }
       });
   };
 
   return (
-    <div>
+    <div className={`modal-box ${isModalOpen ? "modal-open" : "modal-closed"}`}>
       <div className="modal-box">
         <img className="h-56" src={image} alt="" />
-        <div className="">
+        <div className="flex flex-col justify-center">
           <form method="dialog" onSubmit={handleBook}>
             {/* Service name */}
             <div className="form-control">
@@ -124,7 +129,12 @@ const BookingModal = ({ singleService }) => {
               <label className="label">
                 <span className="label-text">Date</span>
               </label>
-              <input type="date" name="date" className="input input-bordered" />
+              <input
+                required
+                type="date"
+                name="date"
+                className="input input-bordered"
+              />
             </div>
 
             {/* Instruction */}
@@ -133,6 +143,7 @@ const BookingModal = ({ singleService }) => {
                 <span className="label-text">Instruction</span>
               </label>
               <input
+                required
                 type="text"
                 placeholder="Enter address and contact number"
                 name="instruction"
@@ -144,6 +155,14 @@ const BookingModal = ({ singleService }) => {
               <button className="btn bg-green text-white">Confirm</button>
             </div>
           </form>
+          <button
+            className="btn btn-outline text-green my-2 w-1/2 mx-auto"
+            onClick={() => {
+              location.reload();
+            }}
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>

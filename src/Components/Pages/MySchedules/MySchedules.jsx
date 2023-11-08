@@ -44,7 +44,7 @@ const MySchedules = () => {
         My Schedules
       </h2>
       <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
-        <div className="overflow-x-auto">
+        <div className="">
           <table className="min-w-full text-xs">
             <thead className="dark:bg-gray-700">
               <tr className="text-left">
