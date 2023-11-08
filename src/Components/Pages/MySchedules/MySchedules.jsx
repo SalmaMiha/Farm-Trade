@@ -7,7 +7,7 @@ const MySchedules = () => {
 
   const currentUser = useContext(AuthContext);
 
-  const url = `http://localhost:5000/myschedules/${currentUser.user.email}`;
+  const url = `https://farm-trade-server.vercel.app/myschedules/${currentUser.user.email}`;
   useEffect(() => {
     axios.get(url, { withCredentials: true }).then((res) => {
       setMySchedules(res.data);
@@ -15,7 +15,7 @@ const MySchedules = () => {
   }, []);
 
   const handleStatus = (currentStatus, id) => {
-    fetch(`http://localhost:5000/schedulestatus/${id}`, {
+    fetch(`https://farm-trade-server.vercel.app/schedulestatus/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

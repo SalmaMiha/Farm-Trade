@@ -7,7 +7,7 @@ const UpdateService = () => {
   const [service, serService] = useState({});
   const { id } = useParams();
 
-  const url = `http://localhost:5000/services/${id}`;
+  const url = `https://farm-trade-server.vercel.app/services/${id}`;
   useEffect(() => {
     axios.get(url, { withCredentials: true }).then((res) => {
       serService(res.data);
@@ -41,7 +41,7 @@ const UpdateService = () => {
 
     console.log(updatedService);
 
-    fetch(`http://localhost:5000/myservices/${service._id}`, {
+    fetch(`https://farm-trade-server.vercel.app/myservices/${service._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -38,7 +38,7 @@ const BookingModal = ({ singleService }) => {
 
     console.log(bookedService);
 
-    fetch("http://localhost:5000/bookedservices", {
+    fetch("https://farm-trade-server.vercel.app/bookedservices", {
       method: "POST",
       headers: {
         "content-type": "application/json",

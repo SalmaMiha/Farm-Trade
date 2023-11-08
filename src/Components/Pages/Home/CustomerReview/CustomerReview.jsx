@@ -10,7 +10,7 @@ import "swiper/css";
 const CustomerReview = () => {
   const [customerReview, setCustomerReview] = useState([]);
 
-  const url = "http://localhost:5000/reviews";
+  const url = "https://farm-trade-server.vercel.app/reviews";
   useEffect(() => {
     axios.get(url, { withCredentials: true }).then((res) => {
       setCustomerReview(res.data);

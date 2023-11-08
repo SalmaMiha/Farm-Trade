@@ -9,7 +9,7 @@ const Newsletter = () => {
 
     event.currentTarget.reset();
 
-    fetch("http://localhost:5000/newsletter", {
+    fetch("https://farm-trade-server.vercel.app/newsletter", {
       method: "POST",
       headers: {
         "content-type": "application/json",

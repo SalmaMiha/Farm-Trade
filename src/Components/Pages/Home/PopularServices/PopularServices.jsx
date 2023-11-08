@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const PopularServices = () => {
   const [popularServices, setPopularServices] = useState([]);
 
-  const url = "http://localhost:5000/services";
+  const url = "https://farm-trade-server.vercel.app/services";
   useEffect(() => {
     axios.get(url, { withCredentials: true }).then((res) => {
       setPopularServices(res.data);

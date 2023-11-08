@@ -8,7 +8,9 @@ const AddProduct = () => {
   const currentUser = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${currentUser.user.email}`)
+    fetch(
+      `https://farm-trade-server.vercel.app/users/${currentUser.user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, []);
@@ -41,7 +43,7 @@ const AddProduct = () => {
     console.log(newProduct);
     event.currentTarget.reset();
 
-    fetch("http://localhost:5000/services", {
+    fetch("https://farm-trade-server.vercel.app/services", {
       method: "POST",
       headers: {
         "content-type": "application/json",

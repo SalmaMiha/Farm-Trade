@@ -6,7 +6,7 @@ import { Typewriter } from "react-simple-typewriter";
 const ServicePage = () => {
   const [services, setServices] = useState([]);
 
-  const url = "http://localhost:5000/services";
+  const url = "https://farm-trade-server.vercel.app/services";
   useEffect(() => {
     axios.get(url, { withCredentials: true }).then((res) => {
       setServices(res.data);

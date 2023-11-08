@@ -9,7 +9,9 @@ const UserInfo = () => {
   const currentUser = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${currentUser.user.email}`)
+    fetch(
+      `https://farm-trade-server.vercel.app/users/${currentUser.user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, []);

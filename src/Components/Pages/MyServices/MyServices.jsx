@@ -9,7 +9,7 @@ const MyServices = () => {
 
   const currentUser = useContext(AuthContext);
 
-  const url = `http://localhost:5000/myservices/${currentUser.user.email}`;
+  const url = `https://farm-trade-server.vercel.app/myservices/${currentUser.user.email}`;
   useEffect(() => {
     axios.get(url, { withCredentials: true }).then((res) => {
       setMyServices(res.data);
@@ -28,7 +28,7 @@ const MyServices = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/service/${_id}`, {
+        fetch(`https://farm-trade-server.vercel.app/service/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

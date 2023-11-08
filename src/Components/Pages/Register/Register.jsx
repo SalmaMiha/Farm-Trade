@@ -37,7 +37,7 @@ const Register = () => {
         toast.success("Sign up completed successfully");
         console.log(result);
         const user = { name, email, image };
-        fetch("http://localhost:5000/users", {
+        fetch("https://farm-trade-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

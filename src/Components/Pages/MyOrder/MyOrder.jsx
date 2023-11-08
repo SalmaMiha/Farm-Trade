@@ -7,7 +7,7 @@ const MyOrder = () => {
 
   const currentUser = useContext(AuthContext);
 
-  const url = `http://localhost:5000/bookedservices/${currentUser.user.email}`;
+  const url = `https://farm-trade-server.vercel.app/bookedservices/${currentUser.user.email}`;
   useEffect(() => {
     axios.get(url, { withCredentials: true }).then((res) => {
       setMyOrder(res.data);
