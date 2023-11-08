@@ -2,8 +2,16 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
-  const { name, image, price, area, description, providerName, providerImage } =
-    service;
+  const {
+    _id,
+    name,
+    image,
+    price,
+    area,
+    description,
+    providerName,
+    providerImage,
+  } = service;
   const slicedDescription = description.slice(0, 100);
 
   return (
@@ -27,7 +35,7 @@ const ServiceCard = ({ service }) => {
             Area: <span className="font-semibold">{area}</span>
           </p>
           <div className=" flex justify-end">
-            <Link>
+            <Link to={`/details/${_id}`}>
               <button className="btn bg-green text-white">View Details</button>
             </Link>
           </div>

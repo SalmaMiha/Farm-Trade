@@ -15,7 +15,7 @@ const UserInfo = () => {
   }, []);
   return (
     <div className="flex items-center gap-2 mr-5">
-      <img className="h-10 rounded-full" src={user.image} alt="" />
+      <img className="h-10 w-10 rounded-full" src={user.image} alt="" />
 
       <div className="dropdown">
         <label tabIndex={0} className="btn m-1  btn-outline text-green">

@@ -48,6 +48,24 @@ const MyServices = () => {
     });
   };
 
+  if (myServices.length === 0) {
+    return (
+      <div className="flex justify-center my-20">
+        <p className="font-semibold text-lg text-center">
+          You did not add any service yet. <br />
+          Want to add some service?
+          <br />
+          <Link
+            className="font-quicksand font-bold text-green underline underline-offset-4"
+            to="/add"
+          >
+            Click Here to add product.
+          </Link>
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="mx-5 md:mx-20 my-10">
       <h2 className="text-center font-quicksand text-2xl font-bold">

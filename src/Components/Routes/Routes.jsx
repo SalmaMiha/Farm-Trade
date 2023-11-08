@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import ServicePage from "../Pages/ServicePage/ServicePage";
 import MyServices from "../Pages/MyServices/MyServices";
 import UpdateService from "../Pages/UpdateService/UpdateService";
+import Details from "../Pages/Details/Details";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ServicePage></ServicePage>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
           </PrivateRoute>
         ),
       },
