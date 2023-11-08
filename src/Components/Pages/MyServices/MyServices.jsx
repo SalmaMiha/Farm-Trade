@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyServices = () => {
   const [myServices, setMyServices] = useState([]);
@@ -14,6 +15,38 @@ const MyServices = () => {
       setMyServices(res.data);
     });
   }, []);
+
+  const handleDelete = (_id) => {
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/service/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire(
+                "Deleted!",
+                "Your Service has been deleted.",
+                "success"
+              );
+              const remaining = myServices.filter((cof) => cof._id !== _id);
+              setMyServices(remaining);
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="mx-5 md:mx-20 my-10">
@@ -58,7 +91,10 @@ const MyServices = () => {
                       Update
                     </button>
                   </Link>
-                  <button className="btn btn-ghost btn-xs text-red-700">
+                  <button
+                    onClick={() => handleDelete(`${myService._id}`)}
+                    className="btn btn-ghost btn-xs text-red-700"
+                  >
                     Delete
                   </button>
                 </th>
