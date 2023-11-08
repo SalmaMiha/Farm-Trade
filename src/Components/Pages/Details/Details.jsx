@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import BookingModal from "./BookingModal/BookingModal";
+
 const Details = () => {
   const [singleService, setSingleServices] = useState({});
   const { id } = useParams();
@@ -30,7 +32,16 @@ const Details = () => {
           ${price}
         </p>
         <div className="flex justify-center my-5">
-          <button className="btn bg-green text-white">Book Now</button>
+          <button
+            onClick={() => document.getElementById("my_modal_1").showModal()}
+            className="btn bg-green text-white"
+          >
+            Book Now
+          </button>
+
+          <dialog id="my_modal_1" className="modal">
+            <BookingModal singleService={singleService}></BookingModal>
+          </dialog>
         </div>
         <hr />
 
@@ -43,7 +54,7 @@ const Details = () => {
             <p className="font-bold text-xl">{providerName}</p>
           </div>
           <p className="mt-2 text-lg">
-            Service Providing Area:{" "}
+            Service Providing Area:
             <span className="font-semibold">{area}</span>
           </p>
         </div>
