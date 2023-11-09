@@ -1,9 +1,14 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { AiOutlineDown } from "react-icons/ai";
 
 const MySchedules = () => {
   const [mySchedules, setMySchedules] = useState([]);
+
+  let pending = 0;
+  let inProgress = 0;
+  let completed = 0;
 
   const currentUser = useContext(AuthContext);
 
@@ -13,6 +18,18 @@ const MySchedules = () => {
       setMySchedules(res.data);
     });
   }, []);
+
+  mySchedules.map((schedule) => {
+    if (schedule.status == "Pending") {
+      pending++;
+    }
+    if (schedule.status == "In Progress") {
+      inProgress++;
+    }
+    if (schedule.status == "Completed") {
+      completed++;
+    }
+  });
 
   const handleStatus = (currentStatus, id) => {
     fetch(`https://farm-trade-server.vercel.app/schedulestatus/${id}`, {
@@ -38,11 +55,34 @@ const MySchedules = () => {
       });
   };
 
+  if (mySchedules.length < 1) {
+    return (
+      <div className="flex justify-center my-20">
+        <p className="font-semibold text-lg text-center">
+          You have no order yet.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="mx-28 mt-10 mb-20">
       <h2 className="mb-5 font-quicksand font-bold text-2xl text-center">
         My Schedules
       </h2>
+      <div className="flex gap-10 justify-center">
+        <p className="text-lg">
+          Pending Order: <span className="font-bold text-green">{pending}</span>
+        </p>
+        <p className="text-lg">
+          Order in Progress:{" "}
+          <span className="font-bold text-green">{inProgress}</span>
+        </p>
+        <p className="text-lg">
+          Completed Order:{" "}
+          <span className="font-bold text-green">{completed}</span>
+        </p>
+      </div>
       <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
         <div className="">
           <table className="min-w-full text-xs">
@@ -85,9 +125,10 @@ const MySchedules = () => {
                     <div className="dropdown">
                       <label
                         tabIndex={0}
-                        className="btn m-1  btn-outline text-green"
+                        className=" m-1 bg-green text-white px-2 py-1 rounded-full font-quicksand flex gap-1 items-center"
                       >
                         {schedule.status}
+                        <AiOutlineDown></AiOutlineDown>
                       </label>
                       <ul
                         tabIndex={0}
