@@ -40,14 +40,14 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/wishlist",
-        element: (
-          <PrivateRoute>
-            <MyWishlist></MyWishlist>
-          </PrivateRoute>
-        ),
-      },
+      // {
+      //   path: "/wishlist",
+      //   element: (
+      //     <PrivateRoute>
+      //       <MyWishlist></MyWishlist>
+      //     </PrivateRoute>
+      //   ),
+      // },
       {
         path: "/details/:id",
         element: (
