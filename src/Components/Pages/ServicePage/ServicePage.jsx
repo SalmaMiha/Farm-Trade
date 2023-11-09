@@ -5,6 +5,8 @@ import { Typewriter } from "react-simple-typewriter";
 
 const ServicePage = () => {
   const [services, setServices] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredServices, setFilteredServices] = useState([]);
 
   const url = "https://farm-trade-server.vercel.app/services";
   useEffect(() => {
@@ -12,6 +14,15 @@ const ServicePage = () => {
       setServices(res.data);
     });
   }, []);
+
+  useEffect(() => {
+    const filtered = services.filter((service) =>
+      service.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    setFilteredServices(filtered);
+  }, [searchQuery, services]);
+
   return (
     <div className="mx-28 my-10">
       <h1 className="text-center py-5 text-2xl font-bold font-quicksand">
@@ -28,7 +39,21 @@ const ServicePage = () => {
           />
         </span>
       </h1>
-      {services.map((service) => (
+
+      {/* search */}
+      <div className="flex justify-center mb-5">
+        <input
+          type="text"
+          name="Search"
+          placeholder="Search for service here"
+          className="input input-bordered border-green border-2 w-96"
+          id=""
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
+
+      {/* services */}
+      {filteredServices.map((service) => (
         <div key={service._id}>
           <ServiceCard service={service}></ServiceCard>
         </div>

@@ -30,8 +30,9 @@ const MyOrder = () => {
                 <p className="text-lg">
                   Price: <span className=" font-semibold">${order.price}</span>
                 </p>
-                <p className=" text-grey mt-3">Date: {order.date}</p>
-                <p className=" text-grey mt-2">{order.instruction}</p>
+                <p className=" text-grey mt-2">Date: {order.date}</p>
+                <p className=" text-grey mt-1">{order.instruction}</p>
+                <p className=" text-grey">Status: {order.status}</p>
               </div>
             </div>
             <hr />
