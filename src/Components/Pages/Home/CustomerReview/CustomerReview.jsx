@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaQuoteLeft } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
-
-// Import Swiper styles
 import "swiper/css";
 
 const CustomerReview = () => {
@@ -31,7 +29,7 @@ const CustomerReview = () => {
           onSwiper={(swiper) => console.log(swiper)}
         >
           {customerReview.map((review) => (
-            <SwiperSlide key={review.id}>
+            <SwiperSlide key={review._id}>
               <div className="bg-white ml-20 py-10 pl-20 pr-10 rounded-lg relative">
                 <img
                   className="absolute w-24 top-1/4 -left-14 rounded-lg"
@@ -63,7 +61,7 @@ const CustomerReview = () => {
           onSwiper={(swiper) => console.log(swiper)}
         >
           {customerReview.map((review) => (
-            <SwiperSlide key={review.id}>
+            <SwiperSlide key={review._id}>
               <div className="bg-white ml-20 py-10 pl-20 pr-10 rounded-lg relative">
                 <img
                   className="absolute w-24 top-1/4 -left-14 rounded-lg"

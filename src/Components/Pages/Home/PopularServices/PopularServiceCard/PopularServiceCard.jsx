@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const PopularServiceCard = ({ popularService }) => {
-  const { image, name, description, price, providerImage, providerName } =
+  const { _id, image, name, description, price, providerImage, providerName } =
     popularService;
 
   let sliceDescription = description.slice(0, 97);
@@ -25,7 +25,7 @@ const PopularServiceCard = ({ popularService }) => {
         <p>{providerName}</p>
       </div>
       <div className="flex justify-center">
-        <Link>
+        <Link to={`/details/${_id}`}>
           <button className="btn bg-green text-white mt-3">View Details</button>
         </Link>
       </div>

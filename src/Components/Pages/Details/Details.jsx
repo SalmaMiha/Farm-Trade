@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import BookingModal from "./BookingModal/BookingModal";
+//import { AiOutlineHeart } from "react-icons/ai";
+//import { AuthContext } from "../../Providers/AuthProvider";
 
 const Details = () => {
   const [singleService, setSingleServices] = useState({});
   const { id } = useParams();
+  //const currentUser = useContext(AuthContext);
 
   const url = `https://farm-trade-server.vercel.app/services/${id}`;
   useEffect(() => {
@@ -15,8 +18,33 @@ const Details = () => {
     });
   }, []);
 
-  const { image, name, price, description, providerName, providerImage, area } =
-    singleService;
+  const {
+    //_id,
+    image,
+    name,
+    price,
+    description,
+    providerName,
+    providerImage,
+    area,
+  } = singleService;
+
+  // const handleAddtoWishlist = () => {
+  //   const userEmail = currentUser.user.email;
+  //   const id = _id;
+  //   const service = { userEmail, id };
+  //   fetch("https://farm-trade-server.vercel.app/wishlist", {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(service),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //     });
+  // };
 
   return (
     <div className="flex gap-10 mx-28 mb-20 mt-10">
@@ -31,6 +59,10 @@ const Details = () => {
         <p className="text-green font-bold font-quicksand text-2xl text-center mt-3">
           ${price}
         </p>
+        {/* <button onClick={handleAddtoWishlist}>
+          <AiOutlineHeart></AiOutlineHeart>
+        </button> */}
+
         <div className="flex justify-center my-5">
           <button
             onClick={() => document.getElementById("my_modal_1").showModal()}
