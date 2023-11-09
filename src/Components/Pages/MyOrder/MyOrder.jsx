@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 const MyOrder = () => {
   const [myOrders, setMyOrder] = useState([]);
@@ -13,6 +14,25 @@ const MyOrder = () => {
       setMyOrder(res.data);
     });
   }, []);
+
+  if (myOrders.length < 1) {
+    return (
+      <div className="flex justify-center my-20">
+        <p className="font-semibold text-lg text-center">
+          You did not order anything yet. <br />
+          Want to order some service?
+          <br />
+          <Link
+            className="font-quicksand font-bold text-green underline underline-offset-4"
+            to="/services"
+          >
+            Click Here to see the services.
+          </Link>
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="mx-28 mt-10 mb-20">
       <h2 className="mb-5 font-quicksand font-bold text-2xl text-center">
