@@ -12,7 +12,7 @@ import UpdateService from "../Pages/UpdateService/UpdateService";
 import Details from "../Pages/Details/Details";
 import MyOrder from "../Pages/MyOrder/MyOrder";
 import MySchedules from "../Pages/MySchedules/MySchedules";
-import MyWishlist from "../Pages/MyWishlist/MyWishlist";
+//import MyWishlist from "../Pages/MyWishlist/MyWishlist";
 
 const router = createBrowserRouter([
   {

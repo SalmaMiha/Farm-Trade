@@ -89,7 +89,7 @@ const BookingModal = ({ singleService }) => {
               </label>
               <input
                 type="text"
-                defaultValue={`$${price}`}
+                defaultValue={price}
                 name="price"
                 className="input input-bordered"
                 readOnly
